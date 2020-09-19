@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mirror.Examples.Pong
+namespace program
 {
     public class DoorsColl : NetworkBehaviour
     {
+
+        
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Finish")
@@ -19,8 +21,8 @@ namespace Mirror.Examples.Pong
         {
             if (collision.gameObject.tag == "Player")
             {
-                
-                gameObject.SetActive(false);
+
+                NetworkServer.Destroy(gameObject);
             }
         }
     }
